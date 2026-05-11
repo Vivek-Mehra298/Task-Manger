@@ -1,0 +1,12 @@
+{
+  "$schema": "https://railway.app/railway.schema.json",
+  "build": {
+    "builder": "nixpacks",
+    "watchPatterns": ["server/**/*", "client/**/*"]
+  },
+  "deploy": {
+    "numReplicas": 1,
+    "startCommand": "cd server && npm run build && npm start",
+    "restartPolicyMaxRetries": 5
+  }
+}
