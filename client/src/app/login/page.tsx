@@ -1,8 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { useForm } from "react-form-hook"; // Will use standard React state for simplicity to avoid extra hook library setups if not fully configured, wait I added react-hook-form
-import { useForm as useReactHookForm } from "react-hook-form";
+import { useForm } from "react-hook-form";
 import Navbar from "@/components/Navbar";
 import api from "@/lib/axios";
 import { useAuth } from "@/context/AuthContext";
@@ -10,7 +9,7 @@ import Link from "next/link";
 import { useRouter } from "next/navigation";
 
 export default function Login() {
-  const { register, handleSubmit, formState: { errors } } = useReactHookForm();
+  const { register, handleSubmit, formState: { errors } } = useForm();
   const [error, setError] = useState("");
   const { login } = useAuth();
   const router = useRouter();
