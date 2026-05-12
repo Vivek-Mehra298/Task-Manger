@@ -1,7 +1,14 @@
 import axios from 'axios';
 
+const apiUrl = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:5000/api';
+
+// Log the API URL being used (for debugging)
+if (typeof window !== 'undefined') {
+  console.log('🔗 API URL:', apiUrl);
+}
+
 const api = axios.create({
-  baseURL: process.env.NEXT_PUBLIC_API_URL || 'http://localhost:5000/api',
+  baseURL: apiUrl,
 });
 
 api.interceptors.request.use((config) => {
